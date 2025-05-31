@@ -1,0 +1,29 @@
+openapi: 3.1.0
+info:
+  title: WorldTimeAPI
+  description: Gets the current time in Asia/Seoul timezone.
+  version: 1.0.0
+servers:
+  - url: https://worldtimeapi.org/api
+    description: WorldTimeAPI server
+paths:
+  /timezone/Asia/Seoul:
+    get:
+      operationId: getCurrentTimeFromSeoul
+      summary: Get current time in Asia/Seoul timezone.
+      description: Retrieves current datetime from WorldTimeAPI in ISO 8601 format.
+      responses:
+        '200':
+          description: Current datetime and timezone data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  datetime:
+                    type: string
+                    format: date-time
+                    example: "2025-05-31T16:28:32.123456+09:00"
+                  timezone:
+                    type: string
+                    example: "Asia/Seoul"
